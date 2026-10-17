@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16071f">
+<title>Kỷ niệm của chúng mình · 20.10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff4ea0;--hot:#ff2f92;--blush:#ffd8eb;--purple:#26103a;--night:#090510;--gold:#ffc5b4}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--night);color:#fff;font-family:"Be Vietnam Pro","Segoe UI",Tahoma,Arial,sans-serif}
+body{background:radial-gradient(ellipse at 50% 47%,#461346 0,#24102f 35%,#100819 68%,#07040e 100%)}
+body:before,body:after{content:"";position:fixed;inset:-12%;pointer-events:none;z-index:0}
+body:before{background:radial-gradient(ellipse at 16% 45%,#b22b7533 0,transparent 29%),radial-gradient(ellipse at 82% 37%,#6b39a944 0,transparent 31%),radial-gradient(ellipse at 55% 95%,#ff367522 0,transparent 28%);filter:blur(18px);animation:nebula 16s ease-in-out infinite alternate}
+body:after{background:linear-gradient(180deg,#07030a44 0%,transparent 35%,#07030a55 100%);z-index:5}
+@keyframes nebula{to{transform:translate3d(2%,-1%,0) scale(1.08);filter:blur(27px)}}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:auto}
+#ambient{position:fixed;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.spark{position:absolute;width:var(--size);height:var(--size);left:var(--x);top:var(--y);border-radius:50%;background:#ffd8f0;box-shadow:0 0 7px 2px #ff67b7,0 0 22px #ff67b744;opacity:.3;animation:twinkle var(--dur) ease-in-out var(--delay) infinite alternate}
+@keyframes twinkle{to{opacity:1;transform:scale(1.9)}}
+.shooting{position:absolute;width:130px;height:1px;left:var(--x);top:var(--y);background:linear-gradient(90deg,transparent,#fff,#ff8bd0,transparent);filter:drop-shadow(0 0 5px #ff80cf);transform:rotate(-25deg);animation:shoot var(--dur) linear var(--delay) infinite;opacity:0}
+@keyframes shoot{0%,74%{opacity:0;transform:translate(-100px,-50px) rotate(-25deg)}77%{opacity:1}88%,100%{opacity:0;transform:translate(290px,140px) rotate(-25deg)}}
+.float-hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+.float-heart{position:absolute;bottom:-9vh;left:var(--x);font-size:var(--size);color:var(--c);text-shadow:0 0 9px currentColor,0 0 22px currentColor;opacity:0;animation:rise var(--dur) linear var(--delay) infinite;filter:drop-shadow(0 0 4px #ff4eab)}
+@keyframes rise{0%{transform:translate3d(0,0,0) rotate(0) scale(.5);opacity:0}12%{opacity:var(--op)}72%{opacity:var(--op)}100%{transform:translate3d(var(--drift),-115vh,0) rotate(var(--rot)) scale(1.15);opacity:0}}
+.horizon-glow{position:fixed;left:50%;bottom:7%;width:min(76vw,1000px);height:22vh;transform:translateX(-50%);border-radius:50%;background:radial-gradient(ellipse,#ff319c2b 0, #d332a218 32%,transparent 70%);filter:blur(20px);z-index:1;pointer-events:none}
+.floor-ring{position:fixed;left:50%;top:80%;width:min(57vw,700px);height:min(13vw,150px);transform:translate(-50%,-50%) perspective(450px) rotateX(63deg);border:2px solid #ff69bd9c;border-radius:50%;box-shadow:0 0 15px #ff56b799,inset 0 0 16px #ff56b744;z-index:2;pointer-events:none;animation:ringPulse 4s ease-in-out infinite}
+.floor-ring.r2{width:min(47vw,570px);height:min(10vw,110px);border-color:#ffd0eb8a;animation-delay:-1.1s}.floor-ring.r3{width:min(67vw,820px);height:min(16vw,175px);border-color:#e654ba55;animation-delay:-2.2s}
+@keyframes ringPulse{50%{opacity:.46;transform:translate(-50%,-50%) perspective(450px) rotateX(63deg) scale(.94)}}
+.header{position:fixed;inset:0 0 auto;z-index:6;pointer-events:none;padding:clamp(14px,2.6vh,27px) clamp(14px,3vw,42px)}
+.top-pill{position:absolute;top:clamp(14px,2.6vh,26px);display:flex;align-items:center;gap:8px;border:1px solid #ffacd466;background:linear-gradient(120deg,#281027d9,#130a20c9);box-shadow:0 0 22px #ff3e9b18,inset 0 0 18px #fa77be0d;backdrop-filter:blur(14px);border-radius:100px;padding:10px 15px;color:#ffe5f2;font-size:12px;letter-spacing:.03em;pointer-events:auto}
+#daysPill{left:clamp(14px,3vw,42px)}#daysPill .heart-icon{font-size:16px;color:#ff6db8;text-shadow:0 0 10px #ff48a5}
+#musicPanel{right:clamp(14px,3vw,42px);width:clamp(220px,21vw,300px);border-radius:19px;padding:11px 13px;display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center}
+.album-art{width:44px;height:44px;border-radius:10px;background:linear-gradient(145deg,#ff7abd,#5b287d 58%,#120b23);display:grid;place-items:center;font-size:22px;box-shadow:0 0 16px #ff68ad33;overflow:hidden;position:relative}
+.album-art:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent,#fff2,transparent);transform:translateX(-100%);animation:shine 4s infinite}
+@keyframes shine{to{transform:translateX(120%)}}
+.track{font-size:12px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.artist{font-size:10px;color:#dcb4d1;margin-top:3px}.player-row{grid-column:1/-1;display:flex;align-items:center;gap:8px}.player-btn{background:transparent;color:white;padding:2px 5px;box-shadow:none;font-size:15px;border:0;min-width:24px}.player-btn:hover{transform:none;color:#ffb6da}.progress{height:3px;background:#ffffff26;border-radius:5px;overflow:hidden;flex:1}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff5aa8,#ffe1f2);box-shadow:0 0 8px #ff71b9}
+.hero-title{position:absolute;left:50%;top:clamp(22px,5.3vh,60px);transform:translateX(-50%);width:min(60vw,780px);text-align:center;white-space:normal}
+.hero-title h1{margin:0;font-family:"Be Vietnam Pro","Segoe UI",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:.005em;font-size:clamp(26px,4.05vw,57px);line-height:1.08;color:#fff0f8;text-shadow:0 0 4px white,0 0 17px #ff6dbb,0 0 40px #fc3b9a9c}
+.hero-title .date{margin-top:6px;display:flex;align-items:center;justify-content:center;gap:14px;font-family:Georgia,serif;font-size:clamp(17px,2.2vw,29px);letter-spacing:.28em;color:#ffe2f0;text-shadow:0 0 15px #ff69b3}
+.hero-title .date:before,.hero-title .date:after{content:"";display:block;width:clamp(32px,7vw,95px);height:1px;background:linear-gradient(90deg,transparent,#ff9bce)}.hero-title .date:after{transform:scaleX(-1)}
+.hero-title .subtitle{margin-top:8px;font-size:10px;letter-spacing:.34em;color:#ffbadc;text-transform:uppercase;text-shadow:0 0 12px #ff4ba4}
+#photos{position:fixed;inset:0;z-index:4;pointer-events:none}
+.memory-card{position:absolute;width:clamp(74px,8.3vw,122px);aspect-ratio:3/4.15;border-radius:13px;padding:5px;border:1px solid #ffdbed;background:linear-gradient(145deg,#fff4, #fff1 35%,#f67dc52b);box-shadow:0 0 0 1px #fd8fcc44,0 0 18px #ff4b9a70,0 12px 32px #05020d91;backdrop-filter:blur(8px);pointer-events:auto;overflow:hidden;cursor:pointer;transition:box-shadow .25s,border-color .25s;will-change:transform,left,top;transform-style:preserve-3d}
+.memory-card:before{content:"";position:absolute;inset:0;background:linear-gradient(125deg,#ffffff55,transparent 23%,transparent 72%,#ff87c526);pointer-events:none;z-index:2}
+.memory-card:hover{border-color:#fff;box-shadow:0 0 0 1px #fff8,0 0 30px #ff4baacb,0 16px 40px #05020d99}
+.memory-card img{display:block;width:100%;height:100%;object-fit:cover;border-radius:8px;background:#35143e}
+.photo-fallback{position:absolute;inset:5px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;text-align:center;padding:6px;background:radial-gradient(circle at 50% 35%,var(--card-light),transparent 40%),linear-gradient(160deg,var(--card-dark),#170b28);color:#ffe5f1;font-size:10px;letter-spacing:.04em;line-height:1.4}.photo-fallback .mini-heart{font-size:27px;color:#ff88c4;text-shadow:0 0 12px #ff5ca9}.photo-fallback small{font-size:8px;color:#e1b2d4}
+#tapHint{position:fixed;z-index:6;bottom:clamp(18px,3.2vh,32px);left:50%;transform:translateX(-50%);text-align:center;color:#ffe8f4;font:italic 16px Georgia,serif;text-shadow:0 0 12px #ff5fae;white-space:nowrap;pointer-events:none}
+#tapHint .hand{display:block;font-style:normal;font-size:19px;animation:tap 1.7s ease-in-out infinite;margin-bottom:4px}@keyframes tap{50%{transform:translateY(-5px) scale(1.1)}}
+#musicStatus{position:fixed;bottom:14px;right:18px;z-index:6;color:#f7cae4;font-size:10px;opacity:.65;pointer-events:none}
+/* Better-than-empty fallback if WebGL or CDN is unavailable. */
+#fallbackHeart{position:fixed;z-index:2;left:50%;top:53%;width:clamp(170px,24vw,310px);height:auto;transform:translate(-50%,-50%);filter:drop-shadow(0 0 12px #ff4f9a) drop-shadow(0 0 38px #fe3188a3);animation:heartBeat 2.1s ease-in-out infinite;pointer-events:auto;cursor:pointer}
+#fallbackHeart svg{width:100%;height:auto;overflow:visible}body.three-ready #fallbackHeart{display:none}body.three-failed #scene{display:none}
+@keyframes heartBeat{0%,100%{transform:translate(-50%,-50%) scale(1)}8%{transform:translate(-50%,-50%) scale(1.045)}16%{transform:translate(-50%,-50%) scale(1)}24%{transform:translate(-50%,-50%) scale(1.025)}34%{transform:translate(-50%,-50%) scale(1)}}
+/* Gate and wish dialogs */
+#gate,#wish{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;background:#090410a8;backdrop-filter:blur(9px);z-index:20;opacity:1;transition:opacity .7s,visibility .7s}
+#gate.hidden{opacity:0;visibility:hidden;pointer-events:none}#wish{z-index:21;opacity:0;visibility:hidden;pointer-events:none;background:#07030eb8}#wish.open{opacity:1;visibility:visible;pointer-events:auto}
+.dialog{position:relative;width:min(440px,100%);padding:clamp(25px,4vw,38px) clamp(22px,4vw,37px);text-align:center;border:1px solid #ffb6d9a8;border-radius:28px;background:linear-gradient(145deg,#35133ff2,#170b25f5 65%,#230e30f5);box-shadow:0 0 0 1px #ffffff0b,0 0 30px #f9309970,0 0 100px #9b257633,inset 0 0 38px #ff5cab10;overflow:hidden;transform:translateY(0);animation:dialogIn .7s cubic-bezier(.2,.8,.2,1)}
+.dialog:before{content:"";position:absolute;inset:-40% -20% auto;height:150px;background:radial-gradient(ellipse,#ff4c9b38,transparent 68%);pointer-events:none}.dialog>*{position:relative}
+@keyframes dialogIn{from{transform:translateY(18px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+.kicker{font-size:10px;letter-spacing:.34em;color:#ffacd2;text-transform:uppercase;margin:0 0 12px}.dialog .big-emoji{font-size:43px;filter:drop-shadow(0 0 13px #ff479e);margin-bottom:5px;animation:heartBeat 2.1s ease-in-out infinite}.dialog h2{font:400 30px Georgia,serif;color:#fff0f7;margin:6px 0 12px;text-shadow:0 0 17px #ff5aa9}.dialog p{font-size:13px;color:#f1d7e8;line-height:1.75;margin:0 0 16px}.dialog input{width:100%;padding:14px 13px;border-radius:13px;border:1px solid #f48cbd77;background:#0d0718a8;color:#fff;text-align:center;font-size:17px;outline:none;box-shadow:inset 0 0 15px #0004;transition:border-color .2s,box-shadow .2s}.dialog input:focus{border-color:#ff9dcc;box-shadow:0 0 0 3px #ff4f9a22,inset 0 0 15px #0004}.primary{position:relative;border:1px solid #ffb5d5aa;border-radius:99px;margin-top:13px;padding:12px 25px;background:linear-gradient(100deg,#ff4e9a,#ff91c4 55%,#ffd0e8);color:#4a1032;font-weight:750;font-size:13px;letter-spacing:.04em;box-shadow:0 7px 26px #f9329170,inset 0 1px 0 #fff8;cursor:pointer;transition:transform .2s,filter .2s}.primary:hover{transform:translateY(-2px);filter:brightness(1.08)}#error{min-height:22px;padding-top:8px;color:#ffb0d3;font-size:12px}#error.shake{animation:shake .3s}@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}.dialog .small-note{font-size:10px;opacity:.63;margin:5px 0 0}
+#wish .dialog{width:min(550px,100%);max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);padding:clamp(26px,4.8vw,46px);border-radius:32px;box-shadow:0 0 35px #ff4f9a6e,0 0 110px #c238ab33,inset 0 0 40px #ff5cab15;overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#ff70b8 #24102f}#wish .big-emoji{font-size:45px}#wishTitle{font-size:clamp(25px,3vw,33px)}#wishText{white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;font-family:"Be Vietnam Pro","Segoe UI",Tahoma,Arial,sans-serif;font-size:clamp(14px,1.15vw,16px);line-height:1.9;text-align:left;color:#ffe9f3;margin:14px 0 18px;max-height:min(50vh,440px);overflow-y:auto;padding:4px 10px;scrollbar-width:thin;scrollbar-color:#ff70b8 #24102f;overscroll-behavior:contain}#wishText.wish-text-enter{animation:wishTextSlide .85s cubic-bezier(.2,.75,.25,1) both}#wishText.typing::after{content:"▍";display:inline-block;margin-left:2px;color:#ff9dce;text-shadow:0 0 8px #ff4ea0;animation:typingCursor .8s steps(1,end) infinite}@keyframes typingCursor{50%{opacity:0}}@keyframes wishTextSlide{from{opacity:0;transform:translateY(22px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}#wishClose{margin-top:0}
+.burst-heart{position:fixed;z-index:19;pointer-events:none;color:#ff7bbd;text-shadow:0 0 10px #ff4f9a;animation:burst 1.4s ease-out forwards}@keyframes burst{from{opacity:1;transform:translate(0,0) scale(.45) rotate(0)}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.35) rotate(var(--rot))}}
+/* Help when no image/music has been added yet */
+@media(max-width:700px){.hero-title{top:10vh;width:84vw}.hero-title h1{font-size:clamp(27px,7vw,42px)}.hero-title .subtitle{font-size:8px;letter-spacing:.18em}#musicPanel{width:48px;height:48px;padding:2px;display:block;border-radius:50%;overflow:hidden;top:70px}.album-art{width:42px;height:42px;margin:auto}.music-details,.player-row{display:none}#daysPill{font-size:10px;padding:9px 11px}.memory-card{width:clamp(56px,15vw,84px);border-radius:9px;padding:3px}.photo-fallback{inset:3px;font-size:8px}.photo-fallback .mini-heart{font-size:19px}.photo-fallback small{font-size:7px}.floor-ring{top:80%;width:80vw;height:18vw}.floor-ring.r2{width:66vw;height:14vw}.floor-ring.r3{width:94vw;height:22vw}#tapHint{font-size:12px;bottom:22px}#musicStatus{display:none}#wish{padding:12px}#wish .dialog{max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);padding:24px 19px}#wishText{max-height:48vh;font-size:14px;line-height:1.85;padding:4px 6px}}
+@media(max-height:650px) and (min-width:701px){.hero-title{top:3vh}.hero-title h1{font-size:clamp(25px,4vh,40px)}.hero-title .date{font-size:17px}.hero-title .subtitle{margin-top:4px}.memory-card{width:clamp(66px,7.4vw,100px)}#tapHint{bottom:12px}.floor-ring{top:84%}}
+
+@media(prefers-reduced-motion:reduce){#wishText.wish-text-enter{animation:none;opacity:1;transform:none;filter:none}#wishText.typing::after{animation:none}}
+</style>
+</head>
+<body>
+<div id="ambient"></div><div class="float-hearts" id="floatHearts"></div><div class="horizon-glow"></div><div class="floor-ring r3"></div><div class="floor-ring"></div><div class="floor-ring r2"></div>
+<canvas id="scene" aria-label="Hiệu ứng trái tim 3D"></canvas>
+<!-- fallback heart remains visible if the Three.js CDN cannot be reached -->
+<div id="fallbackHeart" role="button" aria-label="Mở lời chúc" tabindex="0">
+<svg viewBox="0 0 300 275" role="img" aria-label="Trái tim hồng phát sáng"><defs><linearGradient id="heartGrad" x1=".12" y1="0" x2=".88" y2="1"><stop offset="0" stop-color="#fff0fb"/><stop offset=".21" stop-color="#ff8cce"/><stop offset=".48" stop-color="#fb3299"/><stop offset=".76" stop-color="#9f126d"/><stop offset="1" stop-color="#ff9cda"/></linearGradient><linearGradient id="facet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe4f6" stop-opacity=".9"/><stop offset="1" stop-color="#ff37a6" stop-opacity=".05"/></linearGradient></defs><path d="M150 255 C122 226 17 154 17 80 C17 7 102 -9 150 53 C198 -9 283 7 283 80 C283 154 178 226 150 255Z" fill="url(#heartGrad)" stroke="#ffd8f0" stroke-width="2.5"/><path d="M150 53 L95 70 L46 106 L74 151 L150 255 L150 53Z" fill="url(#facet)" opacity=".6"/><path d="M150 53 L205 70 L254 106 L226 151 L150 255 L150 53Z" fill="#ff9de0" opacity=".3"/><path d="M95 70 L150 53 L150 118 L74 151Z" fill="#ffdaf2" opacity=".48"/><path d="M205 70 L150 53 L150 118 L226 151Z" fill="#ffeffa" opacity=".55"/><path d="M46 106 L74 151 L150 118 L95 70Z" fill="#ff5bb5" opacity=".7"/><path d="M254 106 L226 151 L150 118 L205 70Z" fill="#d92a94" opacity=".5"/><path d="M74 151 L150 118 L150 255Z" fill="#ffb9e7" opacity=".55"/><path d="M226 151 L150 118 L150 255Z" fill="#ff4cab" opacity=".42"/><path d="M58 52 Q75 19 112 31" fill="none" stroke="#fff0fb" stroke-width="4" stroke-linecap="round" opacity=".85"/><path d="M42 79 Q45 66 55 61" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/></svg>
+</div>
+<header class="header">
+  <div class="top-pill" id="daysPill"><span class="heart-icon">♥</span><span><b id="daysLabel">365 ngày bên nhau</b> <span style="color:#ffacd2">✧</span></span></div>
+  <div class="hero-title"><h1>Kỷ niệm của chúng mình</h1><div class="date">20.10</div><div class="subtitle">Một góc nhỏ lưu giữ những điều thương</div></div>
+  <div class="top-pill" id="musicPanel" aria-label="Trình phát nhạc"><div class="album-art">♫</div><div class="music-details"><div class="track" id="trackName">Bản nhạc của chúng mình</div><div class="artist" id="artistName">Kỷ niệm 20-10 · Nhạc nền</div></div><div class="player-row"><button id="musicToggle" class="player-btn" type="button" aria-label="Phát hoặc tạm dừng">▶</button><div class="progress"><span id="progressBar"></span></div><span id="timeLabel" style="font-size:9px;color:#f1bfda">♫</span></div></div>
+</header>
+<div id="photos" aria-label="Ảnh kỷ niệm"></div>
+<div id="tapHint"><span class="hand">♧</span>Chạm vào trái tim để mở lời chúc<span style="display:block;font-size:10px;letter-spacing:.18em;margin-top:5px;color:#fcbad9">— MỘT KỶ NIỆM DÀNH RIÊNG CHO EM —</span></div>
+<div id="musicStatus">♪ Nhạc bắt đầu sau khi mở kỷ niệm</div>
+<div id="gate"><form class="dialog" id="gateForm"><div class="big-emoji">♡</div><div class="kicker">Một điều bí mật nho nhỏ</div><h2>Mở món quà 20-10</h2><p>Chỉ người nhớ ngày đặc biệt của chúng mình mới mở được món quà này đó. 💗</p><input id="dayInput" type="number" min="1" step="1" placeholder="Số ngày chúng mình bên nhau" required autocomplete="off"><button class="primary" type="submit">Mở kỷ niệm&nbsp; ✨</button><div id="error" aria-live="polite"></div><p class="small-note">Một nơi cất giữ những khoảnh khắc chỉ chúng mình hiểu.</p></form></div>
+<div id="wish"><div class="dialog"><div class="big-emoji">♥</div><div class="kicker">Dành riêng cho em · 20.10</div><h2 id="wishTitle">Gửi em, ngày 20-10</h2><p id="wishText">Chúc em ngày 20-10 thật vui vẻ và luôn rạng rỡ như những vì sao.\nCảm ơn em vì đã xuất hiện và cùng tạo nên những kỷ niệm thật đẹp. Mong chúng mình sẽ còn có thật nhiều ngày đáng nhớ bên nhau. 💗</p><button class="primary" id="wishClose" type="button">Giữ lấy kỷ niệm&nbsp; ♥</button></div></div>
+<audio id="bgMusic" src="nhac1.mp3" loop preload="metadata"></audio>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script>
+/* ===== THAY ĐỔI CÁC THÔNG TIN NÀY TRƯỚC KHI DÙNG ===== */
+window.KYNIEM_CONFIG={
+  LOVE_DAYS:418, // Thay bằng số ngày yêu thật
+  TRACK_NAME:'Bản nhạc của chúng mình',
+  ARTIST_NAME:'Kỷ niệm 20-10',
+  WISH:`Gửi em, cô gái đặc biệt của anh — ngày 20-10 💗
+
+Chúc em ngày 20-10 thật vui vẻ, bình yên và luôn rạng rỡ như những vì sao. Anh mong em sẽ luôn mỉm cười, luôn tự tin với những điều mình lựa chọn và gặp thật nhiều may mắn trên con đường phía trước.
+
+Cảm ơn em vì đã xuất hiện trong cuộc sống của anh, vì những khoảnh khắc nhỏ bé mà chúng mình đã cùng nhau tạo nên. Có thể đó chỉ là những cuộc trò chuyện bình thường, những lần cùng nhau cười vui hay những ngày chẳng có điều gì quá đặc biệt, nhưng với anh, chính những điều giản dị ấy lại làm nên những kỷ niệm đáng trân trọng nhất.
+
+Anh mong rằng khi ở bên anh, em luôn có thể thoải mái là chính mình. Khi vui, chúng mình cùng chia sẻ niềm vui; khi mệt mỏi, mong em biết rằng em vẫn có người sẵn lòng lắng nghe. Anh không mong mọi thứ giữa chúng mình lúc nào cũng hoàn hảo, chỉ mong cả hai luôn chân thành, biết lắng nghe và cùng nhau trưởng thành hơn mỗi ngày.
+
+Mong rằng sau ngày 20-10 này, chúng mình sẽ còn có thêm thật nhiều bức ảnh đẹp, những chuyến đi đáng nhớ, những câu chuyện kể mãi không hết và những khoảnh khắc mà sau này nhìn lại, cả hai vẫn có thể mỉm cười. Anh hy vọng chúng mình sẽ luôn biết trân trọng những ngày đang có, bởi đôi khi hạnh phúc không nằm ở điều gì lớn lao mà ở việc có một người để cùng sẻ chia những điều bình thường nhất.
+
+Chúc em luôn khỏe mạnh, bình an, gặp được những người tốt và đủ can đảm để theo đuổi những ước mơ của mình. Cảm ơn em vì đã cùng anh viết nên một phần ký ức thật đẹp. Anh hy vọng rằng khi nhìn lại món quà nhỏ này, em sẽ nhớ rằng đã có một người dành thời gian tạo nên nó chỉ để mong em vui.
+
+Chúc em một ngày 20-10 thật ngọt ngào, hôm nay và cả những ngày sau nữa.
+
+Thương em nhiều! Mong chúng mình sẽ còn cùng nhau tạo nên thật nhiều điều đẹp đẽ. 💗`,
+  PHOTO_CAPTIONS:[
+    'Có những khoảnh khắc nhỏ nhưng mình muốn nhớ thật lâu. 💗',
+    'Cảm ơn vì đã cùng nhau tạo nên một kỷ niệm thật đẹp.',
+    'Mong rằng mình sẽ còn có thêm thật nhiều chuyến đi như thế này.',
+    'Chỉ cần ở cạnh nhau, những ngày bình thường cũng trở nên đặc biệt.',
+    'Một tấm hình, thật nhiều điều đáng nhớ. ♡',
+    'Mong chúng mình luôn dịu dàng với nhau như những ngày đầu.',
+    'Cùng nhau viết tiếp những câu chuyện đẹp phía trước nhé.',
+    'Cảm ơn em vì đã là một phần thật đẹp trong những ngày tháng này.',
+    'Sau này xem lại, mong mình vẫn sẽ mỉm cười.',
+    'Kỷ niệm này là của chúng mình. Thương em! ♥'
+  ]
+};
+const cfg=window.KYNIEM_CONFIG;
+document.getElementById('daysLabel').textContent=`${cfg.LOVE_DAYS} ngày bên nhau`;
+document.getElementById('trackName').textContent=cfg.TRACK_NAME;
+document.getElementById('artistName').textContent=cfg.ARTIST_NAME;
+const gate=document.getElementById('gate'), wish=document.getElementById('wish'), errorBox=document.getElementById('error'), audio=document.getElementById('bgMusic');
+const wishTextEl=document.getElementById('wishText');
+let unlocked=false;
+let typewriterRun=0;
+function splitVietnameseGraphemes(value){
+  const normalized=String(value??'').replace(/\r\n?/g,'\n').normalize('NFC');
+  if(typeof Intl!=='undefined' && typeof Intl.Segmenter==='function'){
+    try{return Array.from(new Intl.Segmenter('vi',{granularity:'grapheme'}).segment(normalized),part=>part.segment)}catch(err){/* use Unicode fallback */}
+  }
+  // Keep combining accent marks attached to the preceding Vietnamese letter.
+  return normalized.match(/\P{M}\p{M}*|\p{M}+/gu)||[];
+}
+function startWishTypewriter(text){
+  const run=++typewriterRun;
+  const normalized=String(text??'').replace(/\r\n?/g,'\n').normalize('NFC');
+  const graphemes=splitVietnameseGraphemes(normalized);
+  wishTextEl.textContent='';
+  wishTextEl.scrollTop=0;
+  wishTextEl.classList.remove('wish-text-enter','typing');
+  void wishTextEl.offsetWidth;
+  wishTextEl.classList.add('wish-text-enter','typing');
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    wishTextEl.textContent=normalized;
+    wishTextEl.classList.remove('typing');
+    return;
+  }
+  (async()=>{
+    let shown='';
+    for(let i=0;i<graphemes.length;i++){
+      if(run!==typewriterRun)return;
+      const ch=graphemes[i];
+      shown+=ch;
+      wishTextEl.textContent=shown;
+      if(i%4===0 || ch==='\n')wishTextEl.scrollTop=wishTextEl.scrollHeight;
+      let delay=50; // ~42 characters/second; comfortable for reading a romantic note.
+      if(ch==='\n')delay=150;
+      else if(/[.!?！？…]/u.test(ch))delay=230;
+      else if(/[,，;；:：]/u.test(ch))delay=105;
+      else if(ch===' ')delay=12;
+      await new Promise(resolve=>setTimeout(resolve,delay));
+    }
+    if(run===typewriterRun){wishTextEl.classList.remove('typing');wishTextEl.scrollTop=wishTextEl.scrollHeight;}
+  })();
+}
+document.getElementById('gateForm').addEventListener('submit',async e=>{e.preventDefault();const v=Number(document.getElementById('dayInput').value);if(!Number.isInteger(v)||v!==Number(cfg.LOVE_DAYS)){errorBox.textContent='Số ngày chưa đúng rồi, thử lại nhé 💗';errorBox.classList.remove('shake');void errorBox.offsetWidth;errorBox.classList.add('shake');document.getElementById('dayInput').focus();return}unlocked=true;gate.classList.add('hidden');burstHearts(innerWidth/2,innerHeight/2,24);try{await audio.play();document.getElementById('musicStatus').textContent='♪ Đang phát nhạc kỷ niệm';document.getElementById('musicToggle').textContent='Ⅱ'}catch{document.getElementById('musicStatus').textContent='♪ Thêm file nhạc nhac1.mp3 để phát nhạc';document.getElementById('trackName').textContent='Chưa thêm file nhạc'} });
+function openWish(title='Gửi em, ngày 20-10',text=cfg.WISH){document.getElementById('wishTitle').textContent=title;wish.classList.add('open');startWishTypewriter(text);burstHearts(innerWidth/2,innerHeight/2,30)}
+function closeWish(){wish.classList.remove('open');typewriterRun++;wishTextEl.classList.remove('typing');}
+document.getElementById('wishClose').addEventListener('click',closeWish);wish.addEventListener('click',e=>{if(e.target===wish)closeWish()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWish()});
+document.getElementById('fallbackHeart').addEventListener('click',()=>{if(unlocked)openWish()});document.getElementById('fallbackHeart').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&unlocked){e.preventDefault();openWish()}});
+document.getElementById('musicToggle').addEventListener('click',async e=>{e.stopPropagation();if(!unlocked){document.getElementById('musicStatus').textContent='♪ Mở kỷ niệm trước để bật nhạc';return}if(audio.paused){try{await audio.play();e.currentTarget.textContent='Ⅱ';document.getElementById('musicStatus').textContent='♪ Đang phát nhạc kỷ niệm'}catch{document.getElementById('musicStatus').textContent='♪ Kiểm tra file music.mp3'}}else{audio.pause();e.currentTarget.textContent='▶';document.getElementById('musicStatus').textContent='♪ Nhạc đang tạm dừng'}});
+audio.addEventListener('timeupdate',()=>{if(audio.duration){document.getElementById('progressBar').style.width=`${audio.currentTime/audio.duration*100}%`;const f=n=>`${Math.floor(n/60).toString().padStart(2,'0')}:${Math.floor(n%60).toString().padStart(2,'0')}`;document.getElementById('timeLabel').textContent=`${f(audio.currentTime)} / ${f(audio.duration)}`}});
+function burstHearts(x,y,n){for(let i=0;i<n;i++){const el=document.createElement('span');el.className='burst-heart';el.textContent=['♥','♡','✦','✧'][Math.floor(Math.random()*4)];el.style.left=`${x}px`;el.style.top=`${y}px`;el.style.fontSize=`${10+Math.random()*18}px`;el.style.setProperty('--dx',`${(Math.random()-.5)*360}px`);el.style.setProperty('--dy',`${(Math.random()-.5)*300-40}px`);el.style.setProperty('--rot',`${(Math.random()-.5)*180}deg`);document.body.appendChild(el);setTimeout(()=>el.remove(),1500)}}
+// Twinkling stars, shooting stars, and ambient 2D hearts remain as graceful fallback.
+const ambient=document.getElementById('ambient');for(let i=0;i<96;i++){const s=document.createElement('i');s.className='spark';s.style.setProperty('--x',`${Math.random()*100}%`);s.style.setProperty('--y',`${Math.random()*100}%`);s.style.setProperty('--size',`${1+Math.random()*2.8}px`);s.style.setProperty('--dur',`${1.4+Math.random()*4}s`);s.style.setProperty('--delay',`${-Math.random()*5}s`);ambient.appendChild(s)}for(let i=0;i<4;i++){const s=document.createElement('i');s.className='shooting';s.style.setProperty('--x',`${Math.random()*70}%`);s.style.setProperty('--y',`${Math.random()*45}%`);s.style.setProperty('--dur',`${4+Math.random()*5}s`);s.style.setProperty('--delay',`${-Math.random()*8}s`);ambient.appendChild(s)}
+const floatLayer=document.getElementById('floatHearts');for(let i=0;i<32;i++){const h=document.createElement('span');h.className='float-heart';h.textContent=Math.random()>.7?'♡':'♥';h.style.setProperty('--x',`${Math.random()*100}%`);h.style.setProperty('--size',`${8+Math.random()*20}px`);h.style.setProperty('--c',['#ff82c1','#ffc2e1','#ff4f9a','#dda7ff'][i%4]);h.style.setProperty('--dur',`${9+Math.random()*16}s`);h.style.setProperty('--delay',`${-Math.random()*22}s`);h.style.setProperty('--drift',`${(Math.random()-.5)*180}px`);h.style.setProperty('--rot',`${(Math.random()-.5)*110}deg`);h.style.setProperty('--op',`${.25+Math.random()*.45}`);floatLayer.appendChild(h)}
+// Orbiting photo cards; real images replace the elegant placeholders when added.
+const photos=document.getElementById('photos');const cardThemes=[['#ff88c8','#37133f'],['#f8c2e4','#2b1749'],['#ffb7ad','#36132e'],['#c9a5ff','#241344'],['#ff7da9','#35112e'],['#ffb5d8','#28103b'],['#bfa2ff','#21133d'],['#ff9dc5','#321033'],['#ffd5b0','#281137'],['#ff8dc4','#24102f']];const cards=[];
+// Tự động nạp 11 ảnh có tên anh10 đến anh20 (ảnh đặt cùng thư mục index.html).
+// Duyệt các đuôi ảnh thường gặp vì Windows có thể đang ẩn phần mở rộng.
+const photoExtensions = ['jpg','jpeg','png','webp','jfif','avif','JPG','JPEG','PNG','WEBP','JFIF','AVIF'];
+for (let slot = 0; slot < 11; slot++) {
+  const imageNumber = slot + 10;
+  const captionIndex = slot;
+  const card = document.createElement('button');
+  card.type = 'button';
+  card.className = 'memory-card';
+  card.setAttribute('aria-label', `Mở ảnh kỷ niệm anh${imageNumber}`);
+
+  const img = document.createElement('img');
+  img.alt = `Ảnh kỷ niệm anh${imageNumber}`;
+  img.loading = 'eager';
+  img.style.display = 'none';
+
+  const placeholder = document.createElement('span');
+  placeholder.className = 'photo-fallback';
+  const theme = cardThemes[slot % cardThemes.length];
+  placeholder.style.setProperty('--card-light', theme[0] + '35');
+  placeholder.style.setProperty('--card-dark', theme[1]);
+  placeholder.innerHTML = `<span class="mini-heart">${slot % 3 === 0 ? '♡' : '♥'}</span><span>Khoảnh khắc<br>${String(imageNumber).padStart(2, '0')}</span><small>ẢNH KỶ NIỆM</small>`;
+
+  let extensionIndex = 0;
+  function tryNextPhotoExtension() {
+    if (extensionIndex >= photoExtensions.length) {
+      img.style.display = 'none';
+      placeholder.style.display = 'flex';
+      return;
+    }
+    img.src = `anh${imageNumber}.${photoExtensions[extensionIndex++]}`;
+  }
+
+  img.addEventListener('load', () => {
+    img.style.display = 'block';
+    placeholder.style.display = 'none';
+  });
+  img.addEventListener('error', tryNextPhotoExtension);
+
+  card.append(img, placeholder);
+  photos.appendChild(card);
+  cards.push(card);
+  card.addEventListener('click', () => {
+    if (!unlocked) {
+      errorBox.textContent = 'Mở khóa bằng số ngày yêu trước nhé 💗';
+      gate.classList.remove('hidden');
+      return;
+    }
+    const caption = cfg.PHOTO_CAPTIONS[captionIndex] || 'Một kỷ niệm nữa mà anh muốn giữ thật lâu. Thương em! 💗';
+    openWish(`Kỷ niệm anh${imageNumber} ♡`, caption);
+  });
+
+  tryNextPhotoExtension();
+}
+function layoutCards(t){const w=innerWidth,h=innerHeight;const rx=Math.min(w*.405,570),ry=Math.min(h*.285,235);cards.forEach((c,i)=>{const a=t*.16+i*Math.PI*2/cards.length-Math.PI*.03;const depth=(Math.sin(a)+1)/2;const x=w/2+Math.cos(a)*rx;const y=h*.535+Math.sin(a)*ry;c.style.left=`${x-c.offsetWidth/2}px`;c.style.top=`${y-c.offsetHeight/2}px`;c.style.zIndex=String(3+Math.round(depth*6));c.style.opacity=String(.66+depth*.34);c.style.transform=`perspective(700px) rotateY(${Math.cos(a)*-13}deg) rotateZ(${Math.sin(a)*5}deg) scale(${.72+depth*.3})`;c.style.filter=`brightness(${.68+depth*.32})`})}
+const fallbackHeart=document.getElementById('fallbackHeart');let pointerDown={x:0,y:0};fallbackHeart.addEventListener('pointerdown',e=>{pointerDown={x:e.clientX,y:e.clientY}});
+/* Three.js is loaded dynamically so the gate, photos and fallback animations still work if CDN/WebGL fails. */
+(async function initThree(){try{const THREE=await import('three');const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');const canvas=document.getElementById('scene');const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;
+const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x190822,.012);const camera=new THREE.PerspectiveCamera(50,innerWidth/innerHeight,.1,180);camera.position.set(0,.15,15);camera.lookAt(0,0,0);
+scene.add(new THREE.AmbientLight(0xffd8ee,1.9));scene.add(new THREE.HemisphereLight(0xffc5e3,0x33133f,1.45));const point1=new THREE.PointLight(0xff3da0,90,38);point1.position.set(0,3,6);scene.add(point1);const point2=new THREE.PointLight(0x9d54ff,60,35);point2.position.set(-7,1,-3);scene.add(point2);const point3=new THREE.PointLight(0xff9abc,70,34);point3.position.set(6,-3,2);scene.add(point3);
+const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.045;controls.enablePan=false;controls.minDistance=11;controls.maxDistance=21;controls.autoRotate=true;controls.autoRotateSpeed=.22;controls.target.set(0,0,0);
+function heartShape(){const s=new THREE.Shape();s.moveTo(0,.38);s.bezierCurveTo(-.14,.69,-.72,.98,-1.08,.55);s.bezierCurveTo(-1.59,-.05,-.78,-.77,0,-1.28);s.bezierCurveTo(.78,-.77,1.59,-.05,1.08,.55);s.bezierCurveTo(.72,.98,.14,.69,0,.38);return s}
+const shape=heartShape();const heartGeo=new THREE.ExtrudeGeometry(shape,{depth:.46,bevelEnabled:true,bevelSegments:7,steps:1,bevelSize:.13,bevelThickness:.13,curveSegments:36});heartGeo.center();heartGeo.computeVertexNormals();const heartMat=new THREE.MeshPhysicalMaterial({color:0xff69b7,metalness:.18,roughness:.18,clearcoat:1,clearcoatRoughness:.08,emissive:0x6f063c,emissiveIntensity:.7,flatShading:true});const big=new THREE.Mesh(heartGeo,heartMat);big.scale.setScalar(1.36);big.position.set(0,.0,.15);scene.add(big);
+// A crystalline, multi-tone face adds jewel facets to the heart instead of a flat icon.
+const faceGeo=new THREE.ShapeGeometry(shape,18);faceGeo.center();const p=faceGeo.attributes.position;const cols=[];for(let i=0;i<p.count;i++){const yy=p.getY(i);const mix=Math.max(0,Math.min(1,(yy+1.25)/2.2));const c=new THREE.Color().setHSL(.88+Math.random()*.035,.78,.44+mix*.28+Math.random()*.13);cols.push(c.r,c.g,c.b)}faceGeo.setAttribute('color',new THREE.Float32BufferAttribute(cols,3));const faceMat=new THREE.MeshBasicMaterial({vertexColors:true,transparent:true,opacity:.48,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false});const face=new THREE.Mesh(faceGeo,faceMat);face.position.set(0,0,.435);face.scale.setScalar(1.25);big.add(face);face.position.set(0,0,.25);face.scale.setScalar(.93);
+// Glowing radial sprites behind the heart.
+function glowTexture(){const c=document.createElement('canvas');c.width=c.height=256;const x=c.getContext('2d');const g=x.createRadialGradient(128,128,2,128,128,128);g.addColorStop(0,'rgba(255,210,242,0.95)');g.addColorStop(.18,'rgba(255,67,174,0.48)');g.addColorStop(.48,'rgba(246,38,155,0.16)');g.addColorStop(1,'rgba(246,38,155,0)');x.fillStyle=g;x.fillRect(0,0,256,256);return new THREE.CanvasTexture(c)}const glowTex=glowTexture();const halo=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:0xff60b7,transparent:true,opacity:.86,blending:THREE.AdditiveBlending,depthWrite:false}));halo.scale.set(5.9,5.9,1);halo.position.set(0,0,-.8);scene.add(halo);
+const shine=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,color:0xffb9e0,transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false}));shine.scale.set(2.5,3.1,1);shine.position.set(0,.35,.5);scene.add(shine);
+// Sparkling space dust and colored particle clouds.
+const starCount=3700,starPos=new Float32Array(starCount*3),starCol=new Float32Array(starCount*3),starSizes=new Float32Array(starCount);for(let i=0;i<starCount;i++){starPos[i*3]=(Math.random()-.5)*45;starPos[i*3+1]=(Math.random()-.5)*27;starPos[i*3+2]=(Math.random()-.5)*28-5;const c=new THREE.Color().setHSL(.82+Math.random()*.16,.7,.58+Math.random()*.36);starCol.set([c.r,c.g,c.b],i*3);starSizes[i]=.5+Math.random()*2}const starGeo=new THREE.BufferGeometry();starGeo.setAttribute('position',new THREE.BufferAttribute(starPos,3));starGeo.setAttribute('color',new THREE.BufferAttribute(starCol,3));starGeo.setAttribute('aSize',new THREE.BufferAttribute(starSizes,1));const starMat=new THREE.PointsMaterial({size:.055,vertexColors:true,transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true});const stars=new THREE.Points(starGeo,starMat);scene.add(stars);
+const cloudCount=1200,cloudPos=new Float32Array(cloudCount*3),cloudColors=new Float32Array(cloudCount*3);for(let i=0;i<cloudCount;i++){const a=Math.random()*Math.PI*2,r=4+Math.random()*12;cloudPos[i*3]=Math.cos(a)*r;cloudPos[i*3+1]=(Math.random()-.5)*8;cloudPos[i*3+2]=Math.sin(a)*r-5;const col=new THREE.Color().setHSL(.88+Math.random()*.12,.8,.38+Math.random()*.28);cloudColors.set([col.r,col.g,col.b],i*3)}const cg=new THREE.BufferGeometry();cg.setAttribute('position',new THREE.BufferAttribute(cloudPos,3));cg.setAttribute('color',new THREE.BufferAttribute(cloudColors,3));const clouds=new THREE.Points(cg,new THREE.PointsMaterial({size:.075,vertexColors:true,transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false}));scene.add(clouds);
+// Tiny 3D hearts float continuously from below the scene.
+const littleShape=heartShape();const littleGeo=new THREE.ExtrudeGeometry(littleShape,{depth:.08,bevelEnabled:true,bevelSegments:2,bevelSize:.035,bevelThickness:.03,curveSegments:12});littleGeo.center();const littleHearts=[];for(let i=0;i<94;i++){const mat=new THREE.MeshStandardMaterial({color:[0xff4e9f,0xff9bd0,0xffc2e5,0xc984f9,0xff6cba][i%5],roughness:.28,metalness:.1,emissive:[0x760b40,0x6b1e58,0x32105e][i%3],emissiveIntensity:.35});const h=new THREE.Mesh(littleGeo,mat);const scale=.035+Math.random()*.095;h.scale.setScalar(scale);h.position.set((Math.random()-.5)*18,-9+Math.random()*19,(Math.random()-.5)*13-2);h.userData={speed:.35+Math.random()*1.1,phase:Math.random()*6.28,drift:.15+Math.random()*.65,rot:(Math.random()-.5)*.8};scene.add(h);littleHearts.push(h)}
+// Fine glowing orbit curves around the central heart.
+const orbits=[];for(let j=0;j<4;j++){const pts=[];const rx=2.8+j*.42,ry=.8+j*.15,tilt=(j-1.5)*.16;for(let k=0;k<=220;k++){const a=k/220*Math.PI*2;pts.push(new THREE.Vector3(Math.cos(a)*rx,Math.sin(a)*ry+tilt,Math.sin(a)*.85-1.1))}const geometry=new THREE.BufferGeometry().setFromPoints(pts);const line=new THREE.LineLoop(geometry,new THREE.LineBasicMaterial({color:j%2?0xffa7d8:0xff4aa8,transparent:true,opacity:.46-j*.055,blending:THREE.AdditiveBlending,depthWrite:false}));line.rotation.x=-.17+j*.13;scene.add(line);orbits.push(line)}
+// Soft vertical light pillars like distant stage lights.
+const beams=[];for(let i=0;i<12;i++){const x=(Math.random()-.5)*20;const geo=new THREE.PlaneGeometry(.05+Math.random()*.11,8+Math.random()*6);const mat=new THREE.MeshBasicMaterial({color:i%3?0xff6bbb:0xc6a0ff,transparent:true,opacity:.035+Math.random()*.04,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false});const b=new THREE.Mesh(geo,mat);b.position.set(x,1.5,-3-Math.random()*4);b.rotation.z=(Math.random()-.5)*.08;scene.add(b);beams.push(b)}
+// Ground rings beneath the heart, with animated pulses.
+const floorGroup=new THREE.Group();floorGroup.position.set(0,-3.25,-.3);floorGroup.rotation.x=-.09;scene.add(floorGroup);for(let i=0;i<7;i++){const ring=new THREE.Mesh(new THREE.TorusGeometry(2.5+i*.42,.012+(i%3)*.004,5,150),new THREE.MeshBasicMaterial({color:i%2?0xff4ba9:0xffc0e7,transparent:true,opacity:.45-i*.045,blending:THREE.AdditiveBlending,depthWrite:false}));ring.scale.y=.32;ring.position.y=i*.012;floorGroup.add(ring)}
+// Thin orbital photo tracks provide depth behind the DOM photo frames.
+const tracks=[];for(let i=0;i<3;i++){const curve=new THREE.EllipseCurve(0,0,5.8+i*.55,2.6+i*.22,0,Math.PI*2,false,0);const pts=curve.getPoints(240).map(v=>new THREE.Vector3(v.x,v.y,-2-i*.25));const tr=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:0xff6bb7,transparent:true,opacity:.18-i*.035,blending:THREE.AdditiveBlending}));tr.rotation.x=.1;scene.add(tr);tracks.push(tr)}
+const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let downX=0,downY=0;canvas.addEventListener('pointerdown',e=>{downX=e.clientX;downY=e.clientY});canvas.addEventListener('pointerup',e=>{if(Math.hypot(e.clientX-downX,e.clientY-downY)>7)return;mouse.x=e.clientX/innerWidth*2-1;mouse.y=-(e.clientY/innerHeight)*2+1;ray.setFromCamera(mouse,camera);const hits=ray.intersectObject(big,true);if(hits.length&&unlocked)openWish()});
+let elapsed=0;const clock=new THREE.Clock();document.body.classList.add('three-ready');const resize=()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)};window.addEventListener('resize',resize);
+renderer.setAnimationLoop(()=>{const dt=Math.min(clock.getDelta(),.04);elapsed+=dt;controls.update();big.rotation.y=Math.sin(elapsed*.46)*.16;big.rotation.x=Math.sin(elapsed*.61)*.055;const pulse=1+Math.sin(elapsed*2.15)*.027;big.scale.setScalar(1.36*pulse);halo.material.opacity=.66+Math.sin(elapsed*1.7)*.17;halo.scale.set(5.7+Math.sin(elapsed*1.1)*.28,5.7+Math.sin(elapsed*1.1)*.28,1);shine.material.opacity=.42+Math.sin(elapsed*2.2)*.18;stars.rotation.y=elapsed*.006;clouds.rotation.y=-elapsed*.018;clouds.rotation.z=Math.sin(elapsed*.1)*.03;orbits.forEach((o,i)=>{o.rotation.y=Math.sin(elapsed*.5+i)*.16;o.rotation.z=elapsed*(i%2?.07:-.045)});tracks.forEach((t,i)=>{t.rotation.z=Math.sin(elapsed*.15+i)*.02});littleHearts.forEach(h=>{h.position.y+=h.userData.speed*dt;h.position.x+=Math.sin(elapsed+h.userData.phase)*h.userData.drift*dt;h.rotation.y+=dt*.65;h.rotation.z+=h.userData.rot*dt;if(h.position.y>8.2){h.position.y=-8.5-Math.random()*3;h.position.x=(Math.random()-.5)*18;h.position.z=(Math.random()-.5)*13-2}});beams.forEach((b,i)=>{b.material.opacity=.025+(Math.sin(elapsed*.7+i*1.8)+1)*.025});layoutCards(elapsed);renderer.render(scene,camera)});
+}catch(err){console.warn('Three.js không tải được, đang dùng hiệu ứng dự phòng:',err);document.body.classList.add('three-failed');document.getElementById('musicStatus').textContent='♪ Hiệu ứng dự phòng đang chạy · kiểm tra Internet để bật 3D';const canvas=document.getElementById('scene');canvas.style.display='none';const drawFallback=()=>layoutCards(performance.now()*.0003);const fallbackLoop=()=>{drawFallback();requestAnimationFrame(fallbackLoop)};fallbackLoop();}}
+)();
+</script>
+</body></html>
